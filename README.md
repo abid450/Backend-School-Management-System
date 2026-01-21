@@ -1,230 +1,100 @@
-# 🔐 Proffesional Django REST Framework JWT Authentication System  :
-A complete, secure & modern authentication system built using **Django**, **DRF**, and **Simple JWT**, featuring **Email Verification**, **Custom User Model**, and **Advanced Token Logging**.  
-## 🚀✨ Key Features
-
-📝 **1. User Registration (Custom User Model)**
-•	Unique Username & Email  
-•	Phone Number support  
-•	Encrypted Password  
-•	Auto-generated Email Verification Token  
-•	User **cannot login until email is verified**  
-
----
-
-
- 📧 **2. Email Verification System**
-✔ User registers → system sends email  
-✔ Email contains verification link  
-✔ User clicks → account becomes **verified**  
-
-📨 Sample email text:
-Hi username, please click the link and verify your email.
-
-
-🔗 Sample verification URL:
-http://127.0.0.1:8000/verify-email/
-<token>/
-
-
-
-🔐 **3. JWT Login System (Secure)**
-•	Login using **username + password/email + password**  
-•	Only **verified** users can login  
-Generates:
-🔑 Access Token 
-🔁 Refresh Token  
-🆔 JTI (Token ID for security logging)
-
----
- 📊 **4. Token Activity Logging**
-Every token action is logged:
-🔵 LOGIN  
-🟡 REFRESH  
-🔴 LOGOUT  
-
-
-Logged details:
-🌐 IP Address  
-💻 Device / User Agent  
-🆔 Token JTI  
-🕒 Timestamp  
-🌐 IP Address Tracking (Advanced Security)
-
-   
-🟦 Features:
-•	Last_ip automatically stored on every login
-•	Login_ip_history table/model tracks all previous login ips
-•	Shows:
-🌍 IP Address
-🕒 Login Time
-📱 Device/User-Agent
-
-
-
-🚨 suspicious login detection
-System can detect & log:
-•	New unknown ip
-•	Frequent ip changes
-•	Sudden location change
-(useful for notifying admin or sending email alerts)
-
-
-
-💻 Device Tracking System (Highly Secure)
-🟩 Features Included:
-✔ last_login_device
-Stores:
-✔ Browser name
-✔ Os
-✔	Device type
-✔	User-agent
-✔	Last Login Date
-✔	Last Login Device Name
-✔	Last IP Name
-✔	Last Logout
-✔	Login count +1………
-
-✔ Device List API
-User can see:
-	All logged-in devices
-	IP
-	Device Name
-	Login Time
-	Active or Expired Status
-•	IP Address
-
-✔ Logout from a Specific Device
-User can logout:
-•	A single device
-•	A specific session
-•	All sessions except current
-✔ Block a Device Permanently
-If a suspicious or unwanted device logs in:
-•	Mark device as blocked
-•	Prevents future logins from that device
-🚨 Perfect for security-focused applications like Banking, E-commerce, EdTech, Admin Dashboards etc.
+📌 School Management System – Features / Modules
+🎓 Student Management
+	Student profile management (Name, Roll, Class, Section, Status)
+	Active / Inactive student handling
+	Advanced student search by name and roll
+	Optimized queryset using select_related & prefetch_related
 ________________________________________
-
-📊 6️⃣ Token Logging System
-Every action stored:
-	🔵 LOGIN
-	🟡 REFRESH
-	🔴 LOGOUT
-
-Logs include:
-•	IP Address
-•	Device Info
-•	Token JTI
-•	Timestamp
-
+📚 Academic & Result Management
+	Subject management
+	Exam management (Mid Term, Test Exam, Final Exam)
+	Student-wise subject marks entry
+	Automatic total marks & average calculation
+	Grade calculation based on percentage
+	Student ranking system using Django Window Functions
+	Exam & subject-wise filtering support
 ________________________________________
-👤 7️⃣ User Profile System
-Returns:
-	Username
-	Email
-	Phone
-	Role
-	Verification Status
-	Last Login Device
-	Last Login IP
-	Login Count
-	List of devices (optional)
-
-
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
-|-----------|----------|
-| 🐍 Python | Backend Language |
-| ⚙️ Django | Framework |
-| 🎛 DRF | REST API |
-| 🔐 Simple JWT | Authentication |
-| 📨 SMTP | Email Sending |
-| 🗄 SQLite / PostgreSQL | Database |
-
-```bash
-git clone https://github.com/yourusername/yourrepo.git
-cd yourrepo
-
-2️⃣ Install Required Packages
-pip install -r requirements.txt
-
-3️⃣ Migrate Database
-python manage.py migrate
-
-4️⃣ Create Admin
-python manage.py createsuperuser
-
-5️⃣ Run the Development Server
-python manage.py runserver
-
-📧 Email Backend Setup
-Development (Console Emails)
-Add to settings.py:
-
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL = "noreply@example.com"
-➡ Email details will show directly in your terminal — no SMTP needed.
-
-🔗 API Endpoints (Full List)
-🟢 Register
-
-POST /register/
-
-{
-  "username": "demo",
-  "email": "demo@mail.com",
-  "Phone_number": "017XXXXXXXX",
-  "password": "Demo@1234"
-}
-
-🔵 Verify Email
-
-GET /verify-email/<token>/
-
-{
-  "username": "demo",
-  "password": "Demo@1234"
-}
-
-
-🔁 Refresh Token
-
-POST /token/refresh/
-
-👤 Profile
-
-GET /profile/
-Header:
-Authorization: Bearer <access_token>
-
-📂 Project Structure:
-project/
-│
-├── accounts/
-│   ├── models.py
-│   ├── serializers.py
-│   ├── views.py
-│   ├── urls.py
-│   ├── utils.py
-│
-├── JWT/
-│   ├── settings.py
-│
-├── requirements.txt
-├── manage.py
-└── README.md
-
-🤝 Contributing
-
-PRs are welcome!
-For major changes, open an issue first.
-
-📄 License
-
-📝 Licensed under the MIT License.
-
-❤️ Author
-
-Abid Hasan
-Passionate Django & DRF Backend Developer
+🧮 Result Analytics
+	Total marks calculation
+	Average marks calculation
+	Rank generation using DenseRank
+	Class-wise & student-wise performance analysis
+________________________________________
+🕒 Attendance Management
+	Daily attendance tracking (Present / Absent / Late)
+	Restriction: one attendance per student per day
+	Attendance remarks support
+	Automatic attendance summary generation
+________________________________________
+📊 Attendance Summary & Ranking
+	Total days calculation
+	Present, absent, and late days count
+	Attendance-based ranking system
+	Real-time update using Django signals
+________________________________________
+📆 Monthly Attendance Report
+	Automatic monthly attendance report generation
+	Month-wise present, absent, late statistics
+	Attendance percentage calculation
+	Class, section & student-wise filtering
+	Optimized queries using TruncMonth
+________________________________________
+📈 Total Attendance Analytics
+	Total present months calculation
+	Total present days across all months
+	Overall attendance percentage
+	Rank students based on long-term attendance performance
+________________________________________
+🔔 Low Attendance Alert System
+	Automatic low attendance detection
+	Configurable attendance threshold
+	Auto email alert sent to students
+	Professional warning message for attendance shortage
+	Triggered automatically using Django signals
+________________________________________
+🔐 Authentication & Security
+	JWT-based authentication (Access & Refresh token)
+	Secure login & signup system
+	Email verification support
+	Password reset via email
+	Device-based login tracking
+	IP history monitoring
+	Logout & device blocking functionality
+________________________________________
+🛠 Admin Panel (Jazzmin UI)
+	Modern & responsive admin dashboard
+	Attendance summary visualization
+	Monthly attendance reports in admin
+	Student ranking overview
+	Advanced search & filtering options
+________________________________________
+⚙️ Backend Architecture & Best Practices
+	Django REST Framework (DRF)
+	Clean service-layer architecture
+	Signal-based automation
+	Pagination for large datasets
+	Optimized database queries
+	Scalable & maintainable code structure
+________________________________________
+🌐 API Features
+	RESTful API design
+	Pagination & filtering support
+	Search functionality
+	Secure API access with JWT
+	Ready for frontend or mobile app integration
+________________________________________
+🚀 Technology Stack
+	Backend: Django, Django REST Framework
+	Authentication: JWT (SimpleJWT)
+	Database: SQLite (can be upgraded to PostgreSQL/MySQL)
+	Admin UI: Jazzmin
+	Email Service: SMTP (Gmail)
+	Frontend Ready: API-first architecture
+________________________________________
+🔮 Future Improvements (Optional)
+•	Teacher management module
+•	Parent portal
+•	Push notifications
+•	Attendance-based performance charts
+•	Mobile app integration
+•	Role-based permissions (Admin / Teacher / Student)
