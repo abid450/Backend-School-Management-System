@@ -326,3 +326,142 @@ school_management_system/
 • Attendance analytics charts
 • Mobile application integration
 • Role-based access control (Admin / Teacher / Student)
+
+
+🛠 Project Tech Stack
+Backend
+
+* Python 3.10+
+
+* Django 5.x
+
+* Django REST Framework (DRF)
+
+* Authentication & Security
+
+* JWT Authentication (SimpleJWT)
+
+* Email verification
+
+* Password reset via email
+
+* Database
+
+* SQLite (Development)
+
+* PostgreSQL / MySQL (Production ready)
+
+* Admin Panel
+
+* Django Admin
+
+* Jazzmin (Modern UI)
+
+* Email & Notification
+
+* SMTP (Gmail)
+
+* Automated low attendance alert system
+
+* Tools & Utilities
+
+* Git & GitHub
+
+* Postman (API testing)
+
+VS Code
+
+⚙️ Installation Process
+
+1️⃣ Clone the Repository
+git clone https://github.com/your-username/school-management-system.git
+cd school-management-system
+
+2️⃣ Create Virtual Environment
+python -m venv venv
+
+
+Activate virtual environment:
+
+Windows
+
+venv\Scripts\activate
+
+
+Linux / Mac
+
+source venv/bin/activate
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Environment Variables Setup
+
+Create a .env file in the root directory and add:
+
+SECRET_KEY=your_secret_key
+DEBUG=True
+
+EMAIL_HOST=smtp.gmail.com
+
+EMAIL_PORT=587
+
+EMAIL_USE_TLS=True
+
+EMAIL_HOST_USER=your_email@gmail.com
+
+EMAIL_HOST_PASSWORD=your_app_password
+
+5️⃣ Database Migration
+
+python manage.py makemigrations
+python manage.py migrate
+
+6️⃣ Create Superuser
+python manage.py createsuperuser
+
+7️⃣ Run the Development Server
+python manage.py runserver
+
+🌐 Access the Application
+
+Backend API: http://127.0.0.1:8000/
+
+Admin Panel: http://127.0.0.1:8000/admin/
+
+API Documentation (if enabled): http://127.0.0.1:8000/api/
+
+🔑 Authentication Flow (JWT)
+
+Login API returns Access Token & Refresh Token
+
+Access Token used for secure API requests
+
+Refresh Token used to regenerate Access Token
+
+📦 API Ready for
+
+Web Frontend
+
+Mobile Application
+
+Third-party integration
+
+🚀 Deployment Ready
+
+Environment-based settings
+
+Secure secret key handling
+
+Production database support
+
+Scalable architecture
+
+📌 Notes
+
+Email alert system works automatically via Django signals
+
+Attendance percentage threshold is configurable
+
+Project follows clean and scalable architecture
+
